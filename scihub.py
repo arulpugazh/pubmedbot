@@ -52,7 +52,10 @@ class SciHub(object):
         for a in s.find_all('a', href=True):
             if 'sci-hub.' in a['href']:
                 urls.append(a['href'])
-        return urls
+        if len(urls) != 0:
+            return urls
+        else:
+            return ['https://sci-hub.tw']
 
     def set_proxy(self, proxy):
         '''
@@ -140,7 +143,9 @@ class SciHub(object):
         If the indentifier is a DOI, PMID, or URL pay-wall, then use Sci-Hub
         to access and download paper. Otherwise, just download paper directly.
         """
-
+        #temp fix start
+        url = ''
+        #temp fix end
         try:
             url = self._get_direct_url(identifier)
 
@@ -179,6 +184,7 @@ class SciHub(object):
                 'err': 'Failed to fetch pdf with identifier %s (resolved url %s) due to request exception.'
                        % (identifier, url)
             }
+
 
     def _get_direct_url(self, identifier):
         """

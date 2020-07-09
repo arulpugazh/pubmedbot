@@ -3,3 +3,7 @@ requests
 retrying
 pysocks
 pandas
+pymupdf
+google-api-python-client
+sqlalchemy
+psycopg2
