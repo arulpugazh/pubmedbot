@@ -14,8 +14,6 @@ print(end - start)
 print("pdfminer")
 
 start = timer()
-article= extract_text('out.pdf')
+article = extract_text('out.pdf')
 end = timer()
 print(end - start)
-
-

@@ -1,0 +1,279 @@
+Article ID,Question,Answer,Context Paragraph
+29083144,What is a good technique to evaluate the adhesion of individual and confluent cells,EIS,We compare the functionality and the morphology of 3D devices with those of a planar analogue using electrochemical impedance spectroscopy – (EIS) and scanning electron microscopy/focused ion beam – (SEM/FIB) to investigate the effective cell spreading of electrogenic cells and discriminate optimal cell adhesion conditions. EIS is known to be an appropriate technique to evaluate the adhesion of individual and confluent cells on conductive electrodes based on impedance models (in terms of resistance and capacitance) of the cell
+28266832,Which element survives bending and folding,Graphene,"These results suggest that the graphene survives both the bending and the folding situations well, and enhances flexibility under constant dynamic motion."
+28306233,How does sulphur influence the loading on the electrochemical performance ,Discharge capacity decreases with sulphur loading increases,"To investigate the influence of sulfur loading on the electrochemical performance of the CF/S/PEDOT electrode, three kinds of high sulfur loading electrodes were prepared and cycled in Li-S cells at 0.1C. As shown in Fig. S5, all the electrodes can exhibit stable cycling performance, although their discharge capacity are "
+25391911,What is serial blackface EM and how does it work,"a tissue sample is placed inside a scanning electron microscope outfitted with a microtome. The instrument images the blockface by backscattered electron scanning electron microscopy (SEM), removes a thin section, and repeats 
+","One approach is serial blockface EM (SBEM), where a tissue sample is placed inside a scanning electron microscope outfitted with a microtome. The instrument images the blockface by backscattered electron scanning electron microscopy (SEM), removes a thin section, and repeats. According to Helmstaedter, who used SBEM in his retinal reconstruction, the process produces a somewhat more isotropic data set than separating the slicing and imaging steps, as Chklovskii did, which produces voxels measuring about 4 × 4×50nm.“Wegaveupalittlebiton x-y resolution, going for 15 or 16 nm,” he explains. “In z, however, we had 25 nm,” a thickness that makes it easier to trace fine neurite fibers. 
+"
+25391911,Is there any animal whose neural wiring is documented,"Yes, nematode worm, Caenorhabditis elegans 
+","Only one organism’s entire neuronal wiring has been traced, that of the nematode worm, Caenorhabditis elegans. Sporting all 302 of neurons linked by some 7600 “synaptic connections,” the nematode connectome was published in 1986 in a mammoth 340-page treatise in the Philosophical Transactions of the Royal Society by John White and colleagues in Sydney Brenner’s group in Cambridge, UK (1). The team built their map using serial section electron microscopy by encasing a worm in plastic, then making a series of trans- verse slices perpendicular to the animal’s long axis. Every third section, each about 50-nm thick, was photographed and printed onto a transparency. 
+"
+22091864,How to get cheap SWNT antimicrobial coated surfaces ,"by significantly reducing the need of higher loads of SWNTs when embedding the SWNTs in the polymer PVK. 
+","Overall, this study shows that SWNTs can be embedded into 
+the electroactive polymer PVK to form stable PVK-SWNT nanocomposite dispersions and films. This mixture increased the dispersion and effective bacterial toxicity of SWNT into aqueous media and led to a more homogeneous coating of PVK-SWNT on ITO surfaces via electrodeposition. In both suspension and coated form, PVK-SWNT exhibited stronger antibacterial effects to E. coli and B. subtilis when compared to SWNT and PVK alone. PVK-SWNT, with only 3% SWNTs (0.03 mg/mL of SWNT), exhibited similar or stronger antibac- terial effects as compared with 100% SWNTs (1 mg/mL of SWNTs). Our study demonstrated for the first time that, by improving dispersibility of SWNT in solution, higher bacterial toxicity of SWNTs can be achieved. These results also demon- strated that it is possible to obtain more economical SWNT antimicrobial coated surfaces by significantly reducing the need of higher loads of SWNTs when embedding the SWNTs in the polymer PVK. 
+"
+30705621,Who published the cue locking study on mice,"Giulio Casali, Sarah Shipley, Charlie Dowell, Robin Hayman and Caswell Barry","Entorhinal Neurons Exhibit Cue Locking in Rodent VR 
+Giulio Casali, Sarah Shipley, Charlie Dowell, Robin Hayman and Caswell Barry"
+27392361,What is The Riemannian distance ,The minimum length of the curve connecting P1 and P2 on a Riemannian manifold ,"The Riemannian distance δR(P1, P2) is the minimum length of the curve connecting P1 and P2 on a Riemannian manifold [27]. There are many possible mathematical definitions of the Riemannian distance [28]. "
+23586693,How do you study the structures of PANI nanofibres,XRD,"XRD was employed to monitor the structure of P-PANI and H-PANI 1# samples. As shown in Figure 4, the diffraction peaks at 2θ = 9.8° and 15.3° are the characteristic repeating units and doping diffraction peaks of PANI, while the peaks centered at 2θ = 20.9° and 25.9° are ascribed to the periodicity. These results demonstrate a successful in situ polymerization of aniline in the presence of PAA nanofiber template. FTIR spectrum of H-PANI 1# further confirms the formation of PANI (Figure 5). The absorption band at 3443 cm−1 parallel and perpendicular to PANI chains, respectively "
+31330925,What is the accuracy obtained in DL-CCANet ,95.52%,"In this work, we have presented a fully automated classification method for heartbeats with various abnormal cardiac conditions. Specifically, to address some of the typical issues of previous various abnormal cardiac conditions. Specifically, to address some of the typical issues of previous studies, we propose two multi-lead ECGs-based feature extraction methods, which are DL-CCANet studies, we propose two multi-lead ECGs-based feature extraction methods, which are DL-CCANet and TL-CCANet developed for extracting correlation information from dual-lead and three-lead ECGs, and TL-CCANet developed for extracting correlation information from dual-lead and three-lead respectively. In the classification stage, the linear support vector machine specializing in processing ECGs, respectively. In the classification stage, the linear support vector machine specializing in high dimensional features was used as the classifier model. To verify the remarkable performance of the processing high dimensional features was used as the classifier model. To verify the remarkable proposed methods, two databases from the PhysioNet PhysioBank were employed: MIT-BIH database performance of the proposed methods, two databases from the PhysioNet PhysioBank were and INCART database. By using the DL-CCANet, the highest overall accuracies of 95.25% and 94.05% employed: MIT-BIH database and INCART database. By using the DL-CCANet, the highest overall were yielded in classifying detailed classes in the MIT-BIH database and INCART database, respectively. accuracies of 95.25% and 94.05% were yielded in classifying detailed classes in the MIT-BIH database When using three-lead ECGs, the TL-CCANet achieved the highest accuracy of 95.52%, which is better and INCART database, respectively. When using three-lead ECGs, the TL-CCANet achieved the than the results of DL-CCANet using two-lead ECGs in the INCART database. Meanwhile, we also highest accuracy of 95.52%, which is better than the results of DL-CCANet using two-lead ECGs in used PCANet and RandNet to identify one-lead ECGs. Compared to them, the results of the proposed the INCART database. Meanwhile, we also used PCANet and RandNet to identify one-lead ECGs. methods are significantly better. "
+29201623,What are MOFs and what are their advantages,"Metal-organic frameworks (MOFs) con- sist of organic molecular linkers bonded to metal-based node. MOFs have advantages such as tunable porosity, chemical stability, ultrahigh specific surface area, and ability to tune the surface chemistry. ","Metal-organic frameworks (MOFs) con-
+sist of organic molecular linkers bonded 
+to metal-based nodes.[8] MOFs have advan-
+tages such as tunable porosity, chemical 
+stability, ultrahigh specific surface area, 
+and ability to tune the surface chemistry. 
+These features have enabled MOFs to find applications in 
+diverse research fields including heterogeneous catalysis,[9] gas 
+storage,[10] separation,[11] capture,[12] and chemical sensing.[13] 
+The electrochemical properties of MOFs have recently received 
+significant attention in the chemical literatures.[14]"
+25462796,How to do measure similarity between activation time-series ,Correlations and partial correlation ,"Correlations and partial correlation are often used for measuring the
+similarity between activation time-series (Blumensath et al., 2013;
+Craddock et al., 2012; Lashkari et al., 2010b) and their robustness was
+validated on synthetic data (Smith et al., 2011)."
+29361722,is there any disadvantages to surface bioelectric recording ,poor spatial resolution,"On the other hand, one of the main limitations of surface bioelectric recording by means of
+conventional disc electrodes is the poor spatial resolution, mainly originating from the blurring effect
+due to different conductivities of the body volume conductor [23,24]. To overcome this limitation,
+surface Laplacian potential records have been proposed [25]."
+29182690,What is used to prepare the DSC working electrodes ,Fluorine-doped tin oxide (FTO; TEC 15),"Fluorine-doped tin oxide (FTO; TEC 15) was used to prepare the
+DSC working electrodes. The FTO glass was cleaned in a
+detergent solution (RBS25, 99%, Fluka) in an ultrasonic bath
+for 60 minutes, and then rinsed with water."
+25624185,Who developed PHANToM haptic,Massie and Salisbury,"There are several general-purpose haptic hand-controllers
+designed and commercialized currently by different com-
+panies. The most commonly used haptic interface is possi-
+bly the PHANToM haptic device, designed and developed
+by Massie and Salisbury (22) at Massachusetts Institute
+of Technology, and now commercialized by Geomagic
+(Rock Hill, USA). Different versions of the PHANToM hap-
+tic device have been designed and developed for various
+applications. The most economic version is the Geomagic®
+Touch™ (formerly SensAble PHANToM Omni®), which
+provides three DOFs of force feedback and six DOFs of
+positional sensing. This haptic device is able to generate a
+maximum force of 3.3 N with position resolution of
+0.055 mm. The Geomagic® Touch™ X is an advanced
+version of Touch™ and provides better position resolution
+(0.023mm) and a maximum force up to 7.9N. The family
+of Geomagic® PHANToM Premium™ models provides a
+larger workspace, better position resolution and better
+quality and range of force rendering. While the Touch™
+family offers a range of motion corresponding to wrist rota-
+tion hand movement, the Premium™ family can provide a
+range of motion equivalent to human wrist rotation hand
+movement for the Premium™ 1.0, human elbow rotation
+arm movement for the Premium™ 1.5, or human shoulder
+rotation arm movement for the Premium™ 3.0. A six-DOF
+version of the latter two models (Premium™ 1.5 and 3.0)
+is also available"
+30634639,How to prevent Robot kidnapping,a closed-loop localization mechanism to monitor the state of the robot in real time and make adaptive adjustments when the robot is kidnapped,"Additionally, to address the problem of robot kidnapping, we present a closed-loop localization mechanism to monitor the state of the robot in real time and make adaptive adjustments when the robot is kidnapped. The closed-loop mechanism effectively exploits the correlation of image sequences to realize the re-localization based on Long-Short Term Memory (LSTM) network. Extensive experiments were conducted and the results indicate that the proposed method not only exhibits great improvement on accuracy and speed, but also can recover from localization failures compared to two conventional localization methods."
+27669264,How to record LFPs,"intracortical electrode arrays
+","Brain recordings can be broadly classiﬁed into two categories; the signals below 300 Hz are called LFPs and relate to increased brain activity in a particular area, while signals above 1000 Hz provide more detailed information on neural spikes [36]. To record neural spikes, the sampling rate should be set to 15 kSPS and above, while for LFPs acquisition, lower sampling rates are adequate. Using intracortical electrode arrays, single unit activity (SUA), multi-units activity (MUA) and LFP can be recorded while cortical surface electrodes enable recording of LFP and ECoG from the surface of the brain. LFP records the ﬁeld electrical potential from a small group of neurons. It records sensorimotor rhythms similar to ECoG, but with higher spatial resolution. Further, in order to analyze the integrative synaptic processes, LFP is the signal of interest instead of spikes, because synaptic processes cannot be captured by spike activity of a small number of neurons. During the past few decades, LFP has been used to study higher level cognitive processes involving attention, memory and perception [37–39], as well as to control prosthetic devices [40–42]. The LFP is also a promising indicator for monitoring neural activity, since the signal can be captured more easily and is more stable in chronic settings when
+compared to spikes [43]."
+27669264,How to measure LFP oscillations,vivo tests,"Thus, in this study, in vivo tests of the system were performed on a behaving monkey to record
+his LFP oscillations. The system was tested by using electrodes implanted in the left hemisphere
+primary motor cortex area to observe LFP oscillation that related to hand motion. The Utah Array
+was connected to the external recording and stimulation units via a connector installed on the skull
+during these measurements. The front-end ampliﬁer lower bandwidth was set to 0.1 Hz, and the
+higher bandwidth was set to 1 kHz. An on board high-pass ﬁlter was enabled with a cutoff frequency
+of 0.3 Hz to remove the residual DC offset voltages.
+"
+31330319,What are different kinds of follicles,"primordial, primary, preantral, secondary and tertiary follicles ","Images of follicles must be obtained separately for classification
+with CNN as described in Section 4.3. Therefore, images of primordial,
+primary, preantral, secondary and tertiary follicles were obtained from
+1750 whole slide training images. Including each follicle with an
+average of 3280 a total of 16404 images were obtained. The classifi-
+cation success of the CNN trained with these images was 91.51%. In
+order to increase the classification success, an increase in the size of the
+dataset was carried out. The data augmentation method, which is fre-
+quently used in deep networks, was used for this purpose."
+30714364,What can be a good alternative to Mercury,Gallium based liquid metals,"Today, gallium (Ga)-based liquid metals have emerged as a
+viable and safer alternative to mercury, as the price of
+production has dropped with increasing demand from the
+semiconductor industry.6 The physicochemical properties of
+LMs signiﬁcantly diﬀer from those of conventional solid
+metals, therefore innovative processing is needed for their
+robust and reliable integration in wearable devices. An
+exhaustive review of LM-based soft and stretchable devices
+and their applications was reported elsewhere.7 Despite
+showing promising results, these devices still fail to be
+deployed at large scale out of the laboratory environment.
+Among the diﬀerent challenges, forming and patterning high
+quality LM ﬁlms at the industrial scale requires understanding
+and overcoming the limitations associated with the LM
+unconventional rheology and wetting properties. In this
+Account, we review the unique properties of Ga-based LMs,
+e.g., complex rheology, high surface tension, solid oxide skin,
+and reactivity with most metals, and report on diﬀerent
+strategies that leverage these characteristics to create reversibly
+deformable electronic components and circuits."
+22624584,How can i detect elemental composition,XPS technique,"The elemental composition of the MWNT−VSH hybrids was
+detected by using the XPS technique, which revealed six peaks in
+the binding energy from 100 to 700 eV. The binding energies for
+these six peaks are (Table 1) 137.4, 164.0, 285.2, 402.4, 534.4,
+and 687.4 eV, corresponding to P 2s, S 2p, C 1s, N 1s, O 1s, and
+F 1s, respectively. Elements C (partially) and O were from the
+MWNTs whereas P, S, N, F, and C (partially) were from the
+viologenthiol of VSH. These XPS data further conﬁrmed the
+formation of MWNT−VSH hybrids."
+27376723,What can be used for data analysis in brain computer interfaces ,Principle component analysis (PCA) and independent component analysis (ICA) ,"Principle component analysis (PCA) and independent
+component analysis (ICA) are widely used for data analysis
+in brain computer interfaces. PCA converts linearly given a
+set of correlated variables into a new one of uncorrelated
+variables called principal components [9]. ICA creates a
+coordinate system in order to ensure statistically indepen-
+dent signals. It reduces the higher order dependencies of
+signals on each other and assumes that measured signals
+are a result of instantaneous linear mixtures of independent
+sources [8]. Both of them reduce high dimensional data and
+spatial redundancy. Support vector machine (SVM) and
+artiﬁcial neural network (ANN) are two popular tools for
+identifying signal patterns in various applications. They are
+used properly to estimate functions on the large number of
+inputs. SVM is constructed on a separating hyperplane as a
+decision surface between two classes with a maximal
+margin. ANN networks based on the large number of
+processing elements called neurons [10]."
+29020777,is there any research on screen-printed PEDOTs,"Screen-Printed PEDOT:PSS Electrodes on Commercial Finished Textiles for Electrocardiograph by Sneh K. Sinha, Yeonsik Noh, Natasa Reljin, Gregory M. Treich,Shirin Hajeb-Mohammadalipour,Yang Guo, Ki H. Chon,and Gregory A. Sotzing ","Yes. Screen-Printed PEDOT:PSS Electrodes on Commercial Finished Textiles for Electrocardiography by Sneh K. Sinha,† Yeonsik Noh,‡ Natasa Reljin,‡ Gregory M. Treich,† Shirin Hajeb-Mohammadalipour,‡ Yang Guo,† Ki H. Chon,‡ and Gregory A. Sotzing "
+30244887,What is virtual eggs test,"The VET measures the individual’s ability to use sensory feedback when the prosthesis is used to lift and transport in a precision grip con- dition. The subject was asked to transfer as many fragile objects as possible, without breaking them, from one side of an 18 cm tall wall to the other, in 120 s (Figure 3A). The functional perfor- mance of the different strategies was compared in terms of manual accuracy, measured as the percentage of unbroken and passed objects with respect to the total number of objects (Clemente et al., 2016), and of gross manual dexterity, measured as the total number of transferred objects (broken and unbroken) 
+","The efﬁcacy of different encoding strategies was evaluated dur-
+ing the virtual eggs test (VET) (Clemente et al., 2016). The VET
+measures the individual’s ability to use sensory feedback when
+the prosthesis is used to lift and transport in a precision grip con-
+dition. The subject was asked to transfer as many fragile objects
+as possible, without breaking them, from one side of an 18 cm
+tall wall to the other, in 120 s (Figure 3A). The functional perfor-
+mance of the different strategies was compared in terms of
+manual accuracy, measured as the percentage of unbroken
+and passed objects with respect to the total number of objects
+(Clemente et al., 2016), and of gross manual dexterity, measured
+as the total number of transferred objects (broken and unbroken)
+(Mathiowetz et al., 1985). "
+25589760,How to make mice unconscious,rising concentration of CO2 gas for 􏰉15 min,"At the end of the study, animals were rendered unconscious by a rising concentration of CO2 gas for 􏰉15 min. Brains were removed and placed in 10% (w/v) buffered paraformaldehyde and shipped for histological processing (Neuroscience As- sociates), which involved 40 􏰈m coronal sec- tioning of implanted regions and staining with thionin for Nissl bodies"
+30664662,How to fabricate achromatic and polarization insensitive metalens ,"electron beam lithography 
+","We sub- sequently fabricated the achromatic and polarization insensitive metalens using electron beam lithography, followed by atomic layer deposition of TiO2 and resist removal37, and compared its performance to a chromatic metalens of the same diameter and NA. The chromatic metalens was designed using rotated nano- fins with the same length and width to impart the Pancharatnam- Berry phase. The chromatic metalens represents the case without dispersion engineering and has a focal length shift similar to a Fresnel lens. 
+"
+22356773,How to binaries the crypto plasm images,Otsu’s method,"To determine the area covered by each cell, the processing of the cytoplasm images consisted firstly in grayscaling and equalization. Afterward, the images were binarized using Otsu’s method [21], and the existing gaps were filled using an erosion morphological operator followed by a dilation one, using both a diamond structuring element of size 3. The resulting image was size-filtered using an opening morphological operator to eliminate remaining isolated pixels. In this way, a binary image stating the cytoplasm coverage was obtained, allowing the calculation of the total area covered by the cells or the mean area covered by each cell. 
+"
+26923313,What is the melting point of gallium,29.8 C,"Based on these observations, we developed a new class of 
+stretchable electronic conductors formed of biphasic solid– liquid thin metal films. A bilayer metallization sequence starting with the sputtering of an alloying gold film followed by the thermal evaporation of liquid gallium (that displays a melting point of 29.8 °C[11]) results in a heterogeneous film composed of clusters of the solid intermetallic alloy AuGa2 
+"
+30300442,What is the distance between neurons and micro vessels in rodents,15 μm ,"The initial implantation injury to the neural tissues is directly related to the cross-sectional footprint of the probes. The mean spacing of the blood microvessels in the rat brain has been shown to be ≈50 μm, and the mean distance between neu- rons and the closest microvessels was ≈15 μm.[6] Therefore, implanted probes with a smaller cross-sectional footprint can effectively reduce damage to the blood vessels and the local neuronal environment. 
+"
+29045044,How to evaluate the performance of supercapacitor,energy density and power density are measured and noted in the Ragone plot ,"Moreover, to evaluate the performance of supercapacitor 
+in practical application, energy density and power density are 
+measured and noted in the Ragone plot of Figure 5a, which 
+is attained by galvanostatic charge–discharge data. The energy 
+density reaches 5.685 Wh kg−1 with the power density of  
+0.81 kW kg−1 at a current density of 0.1 mA cm−2. The 
+maximum power density is 16.35 kW kg−1 at a current density 
+of 2 mA cm−2, with the corresponding energy density of 
+3.407 Wh kg−1. These values in energy density and the power 
+density of flexible 1D–1D hybrid cell assembled with the gel 
+electrolyte are fairly promising."
+30651109,How many people are living with upper limb amputation ,"600,000 people","In the US, more than 600,000 people are estimated to be living with an upper limb amputation as a result of trauma, dysvascular disease, or cancer [1]. Although prostheses have been in use for centuries [2], they still lack the functionality and dexterity of a human hand/ arm, resulting in device abandonment and diminished functional outcomes [3, 4]. "
+22614602,What are EAPs,Electro active polymers,"In this paper we introduce a transparent electro- mechanically driven variable-focus lens based on electroactive polymer (EAP) materials for small- scale applications. Compared to the traditional micro-optofluidic devices, the lens does not require liquid for its operation. Next, an introduction into EAP materials is presented, followed by a brief over- view of existing EAP variable-focus lenses and con- tribution of this work. "
+31341093,What is BCI,Brain Computer Interface,"Brain-computer interface (BCI) system provides an alternative pathway of human-
+computer interface (HCI) [1].
+The important applications of BCI are to analyze
+the EEG signal for people with neuromuscular disabilities and understand their
+intentions [2–4]. Among several BCI signal, P300 evoked potentials, steady-state
+visual evoked potentials (SSVEP) and motor imagery (MI) are the most popular
+research paradigms of EEG signal analyzing, where MI is the only one based on
+spontaneous potential without any external stimulus. MI is a mental process by
+which an individual rehearses or simulates a given action [5]. For diﬀerent movement
+task, the changing of neurons ﬁring pattern can be reﬂected by the changing of power
+spectrum of diﬀerent frequency bands."
+31341093,How to extract motor imagery features,Common spatial patterns,"Pattern recognition plays one of the most important roles in EEG signal analyze.
+Common spatial patterns (CSP) [7,8] is a popular method in extracting diﬀerent MI
+features. Dozens of extension methods of CSP have also been applied successfully
+in MI tasks [9, 10]. In the classiﬁcation part, support vector machine(SVM) is one
+of the most popular classiﬁers in traditional algorithms [8,10] and other traditional
+classiﬁers including linear discriminant analysis (LDA) [11] and Bayesian classiﬁer
+[12] have also been employed in many studies."
+26016496,How do you measure TE efficiency,"The TE efficiency of a material is evaluated by its TE figure of merit (ZT), which is expressed by ZT = S2 σT/κ, where S, σ, T, and κ are the Seebeck coef- ficient, electrical conductivity, temperature, and thermal conductivity, respectively.","Thermoelectric (TE) materials are electrically conductive materials that can realize direct conversion between thermal energy and electrical energy. The TE efficiency of a material is evaluated by its TE figure of merit (ZT), which is expressed by ZT = S2 σT/κ, where S, σ, T, and κ are the Seebeck coef- ficient, electrical conductivity, temperature, and thermal conductivity, respectively. In the past few years, increasing attention in this area has been focused on conducting poly- mers that combine unique and tunable physical and chemical properties and their composites [1–6]. 
+"
+26016496,What are SWCNTs,Single-walled carbon nanotubes,"Single-walled carbon nanotubes (SWCNTs), PEDOT:PSS/SWCNTs, and SWCNTs/PEDOT:
+PSS nanoﬁlms were used as working electrodes to electrodeposit polyaniline (PANI) in a mixed
+alcohol solution of isopropyl alcohol (IPA), boron triﬂuoride ethyl ether (BFEE), and
+polyethylene glycol (PEG). The thermoelectric (TE) performances of the resulting nanoﬁlms
+were systematically investigated. SWCNTs/PEDOT:PSS/PANI nanoﬁlms showed a relatively
+high electrical conductivity value of 232.0 S cm−1. The Seebeck coefﬁcient was enhanced and
+exhibited the values of 33.8, 25.6, and 23.0 μV K−1 for the SWCNTs/PANI, PEDOT:PSS/
+SWCNTs/PANI, and SWCNTs/PEDOT:PSS/PANI ﬁlms, respectively. The maximum power
+factor achieved was 12.3 μW m−1 K−2. This technique offers a facile and versatile approach to a
+class of layered nanostructures, and it may provide a general strategy for fabricating a new
+generation of conducting polymer/SWCNTs materials for further practical applications."
+27590972,What is EEG,ELECTROENCEPHALOGRAPHY,"3.1 ELECTROENCEPHALOGRAPHY
+Even for healthy users, BCIs based on EEG are widely regarded as the most practical
+for regular use (Chatelle et al., 2012, 2015; Naci et al., 2012; Nicolas-Alonso and
+Gomez-Gil, 2012). EEG signals have a very high temporal resolution alongside a
+minimally invasive acquisition protocol. Importantly, these signals can be acquired
+from most individuals with minimal health risks. One of the only physical or medical
+attributes of a person that would render EEG measurements uninformative is a skull
+breach; EEG data acquired over a breached area of a skull are usually contaminated
+by sharp, high-frequency bursts known as breach rhythm (Lee et al., 2010). Breach
+rhythm occurs in some patients with DoC (eg, due to traumatic brain injury).
+"
+27590972,What are Sensorimotor rhythms ,"Sensorimotor rhythms (SMRs) are oscillations in magnetic or electric fields recorded
+over sensorimotor cortex in the mu (8–12 Hz), beta (18–30 Hz), and gamma
+(30–200 Hz) frequency bands","3.1.1 Sensorimotor rhythms
+Sensorimotor rhythms (SMRs) are oscillations in magnetic or electric fields recorded
+over sensorimotor cortex in the mu (8–12 Hz), beta (18–30 Hz), and gamma
+(30–200 Hz) frequency bands (Jasper and Pendfield, 1949; Lopes da Silva, 1991;
+Neuper and Pfurtscheller, 2001). An event-related desynchronization (ERD) is a
+reduction in oscillatory activity related to a sensorimotor event (Pfurtscheller and
+Aranibar, 1977). An increase in oscillatory activity known as an event-related syn-
+chronization (ERS) can also occur, and this increase in activity may be a correlate of
+a disinhibited/deactivated cortical network (Pfurtscheller, 1992).
+Low-frequency mu ERDs (8–10 Hz) occur with almost any motor behavior and
+are widespread over sensorimotor cortex (Pfurtscheller et al., 2000b). "
+31331263,How does Distant Supervision method work,It automatically creates training instances by heuristically aligning facts in existing knowledge bases to free texts.,"Distant supervision (DS) provides a promising solution
+to the scarcity of the training corpora. It automatically
+creates training instances by heuristically aligning facts
+in existing knowledge bases to free texts. Mintz et al.
+[24] assumes that if two entities have a relationship in a
+known knowledge base, then all sentences that contain
+this pair of entities will express the relationship. Since its
+emergence, distant supervision has been widely adopted
+to information extraction in news domain [24] as well as
+in biomedical text mining [25–28]. However, the original
+assumption by Mintz et al. [24] does not always hold
+and false-positive instances may be generated during
+automatic instance construction procedure. The critical
+issue in distant supervision is, therefore, how to filter
+out these incorrect instances. Many methods have been
+proposed to tackle this problem [30–33] and show
+promising results in their respective settings, but few
+[26–28] have demonstrated superiority in performance
+over supervised ones on the benchmark corpora in the
+biomedical domain."
+30677307,What is a top-down approach in neurorehabilitation,"stimulate the brain in a more direct way to elicit plasticity-
+mediated motor re-learning","Introduction: In recent years, neurorehabilitation has moved from a “bottom-up” to a “top down” 
+approach. This change has also involved the technological devices developed for motor and 
+cognitive rehabilitation. It implies that during a task or during therapeutic exercises, new “top-
+down” approaches are being used to stimulate the brain in a more direct way to elicit plasticity-
+mediated motor re-learning. This is opposed to “Bottom up” approaches, which act at the physical 
+level and attempt to bring about changes at the level of the central neural system.  
+Areas covered: In the present unsystematic review, we present the most promising innovative 
+technological devices that can effectively support rehabilitation based on a top-down approach, 
+according to the most recent neuroscientific and neurocognitive findings. In particular, we explore 
+if and how the use of new technological devices comprising serious exergames, virtual reality, 
+robots, brain computer interfaces, rhythmic music and biofeedback devices might provide a top-
+down based approach. 
+"
+30677307,What is a bottom-up approach in neurorehabilitation,"act at the physical 
+level and attempt to bring about changes at the level of the central neural system.","Introduction: In recent years, neurorehabilitation has moved from a “bottom-up” to a “top down” 
+approach. This change has also involved the technological devices developed for motor and 
+cognitive rehabilitation. It implies that during a task or during therapeutic exercises, new “top-
+down” approaches are being used to stimulate the brain in a more direct way to elicit plasticity-
+mediated motor re-learning. This is opposed to “Bottom up” approaches, which act at the physical 
+level and attempt to bring about changes at the level of the central neural system.  
+Areas covered: In the present unsystematic review, we present the most promising innovative 
+technological devices that can effectively support rehabilitation based on a top-down approach, 
+according to the most recent neuroscientific and neurocognitive findings. In particular, we explore 
+if and how the use of new technological devices comprising serious exergames, virtual reality, 
+robots, brain computer interfaces, rhythmic music and biofeedback devices might provide a top-
+down based approach. 
+"
