@@ -21,7 +21,7 @@ def write_to_db(abstract, article, url, cur, conn):
 
 def download_parse_pdf(url):
     f = urlparse(url)
-    f = Path(f.path).name + ".pdf"
+    f = Path(f.path).name
     try:
         sh = SciHub()
         result = sh.download(url, path=f)
@@ -94,7 +94,7 @@ def update_articles():
     rows = cur.fetchall()
     conn.close()
     print(f"Number of articles yet to be updated: {len(rows)}")
-    pool = Pool(10)
+    pool = Pool(5)
     pool.map(update_article, rows)
 
 

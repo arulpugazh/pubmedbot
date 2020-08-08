@@ -17,6 +17,7 @@ import requests
 import urllib3
 from bs4 import BeautifulSoup
 from retrying import retry
+import random
 
 # log config
 logging.basicConfig()
@@ -30,6 +31,7 @@ urllib3.disable_warnings()
 SCHOLARS_BASE_URL = 'https://scholar.google.com/scholar'
 HEADERS = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:27.0) Gecko/20100101 Firefox/27.0'}
 
+
 class SciHub(object):
     """
     SciHub class can search for papers on Google Scholars 
@@ -41,6 +43,11 @@ class SciHub(object):
         self.sess.headers = HEADERS
         self.available_base_url_list = self._get_available_scihub_urls()
         self.base_url = self.available_base_url_list[0] + '/'
+
+        self.sess.headers = {
+            'x-rapidapi-host': "proxy-orbit1.p.rapidapi.com",
+            'x-rapidapi-key': "700fc3b535mshd94d27e8b9b1462p152bd2jsnc1610e9ca1e9"
+        }
 
     def _get_available_scihub_urls(self):
         '''
@@ -143,9 +150,9 @@ class SciHub(object):
         If the indentifier is a DOI, PMID, or URL pay-wall, then use Sci-Hub
         to access and download paper. Otherwise, just download paper directly.
         """
-        #temp fix start
+        # temp fix start
         url = ''
-        #temp fix end
+        # temp fix end
         try:
             url = self._get_direct_url(identifier)
 
@@ -154,12 +161,16 @@ class SciHub(object):
             # and requests doesn't know how to download them.
             # as a hacky fix, you can add them to your store
             # and verifying would work. will fix this later.
+
             res = self.sess.get(url, verify=False)
 
             if res.headers['Content-Type'] != 'application/pdf':
+                f = open('res.html', 'wb')
+                f.write(res.content)
+                f.close()
                 self._change_base_url()
                 logger.info('Failed to fetch pdf with identifier %s '
-                                           '(resolved url %s) due to captcha' % (identifier, url))
+                            '(resolved url %s) due to captcha' % (identifier, url))
                 raise CaptchaNeedException('Failed to fetch pdf with identifier %s '
                                            '(resolved url %s) due to captcha' % (identifier, url))
                 # return {
@@ -179,12 +190,11 @@ class SciHub(object):
 
         except requests.exceptions.RequestException as e:
             logger.info('Failed to fetch pdf with identifier %s (resolved url %s) due to request exception.'
-                       % (identifier, url))
+                        % (identifier, url))
             return {
                 'err': 'Failed to fetch pdf with identifier %s (resolved url %s) due to request exception.'
                        % (identifier, url)
             }
-
 
     def _get_direct_url(self, identifier):
         """
@@ -249,8 +259,10 @@ class SciHub(object):
         pdf_hash = hashlib.md5(res.content).hexdigest()
         return '%s-%s' % (pdf_hash, name[-20:])
 
+
 class CaptchaNeedException(Exception):
     pass
+
 
 def main():
     sh = SciHub()
@@ -267,7 +279,8 @@ def main():
                         type=int)
     parser.add_argument('-o', '--output', metavar='path', help='directory to store papers', default='', type=str)
     parser.add_argument('-v', '--verbose', help='increase output verbosity', action='store_true')
-    parser.add_argument('-p', '--proxy', help='via proxy format like socks5://user:pass@host:port', action='store', type=str)
+    parser.add_argument('-p', '--proxy', help='via proxy format like socks5://user:pass@host:port', action='store',
+                        type=str)
 
     args = parser.parse_args()
 

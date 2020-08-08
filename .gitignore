@@ -3,3 +3,7 @@ __pycache__/
 .idea/
 .vscode/
 .history/
+mlruns/
+pdf/
+valid/
+.ipynb_checkpoints/
