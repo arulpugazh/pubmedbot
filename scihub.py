@@ -44,10 +44,6 @@ class SciHub(object):
         self.available_base_url_list = self._get_available_scihub_urls()
         self.base_url = self.available_base_url_list[0] + '/'
 
-        self.sess.headers = {
-            'x-rapidapi-host': "proxy-orbit1.p.rapidapi.com",
-            'x-rapidapi-key': "700fc3b535mshd94d27e8b9b1462p152bd2jsnc1610e9ca1e9"
-        }
 
     def _get_available_scihub_urls(self):
         '''
