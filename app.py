@@ -9,10 +9,22 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import dash_table
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+import os
 
-document_store = ElasticsearchDocumentStore(host="host",
-                                            port=9200, username="",
-                                            password="", index="main")
+print(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
+credentials = service_account.Credentials.from_service_account_file(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
+
+
+def get_ip_address_gce(project_id, zone, instance_name):
+    service = build('compute', 'v1', credentials=credentials)
+    response = service.instances().get(project=project_id, zone=zone, instance=instance_name).execute()
+    ip = response['networkInterfaces'][0]['accessConfigs'][0]['natIP']
+    return ip
+
+ip = get_ip_address_gce('savvy-factor-282622', 'us-central1-a', 'elastic')
+document_store = ElasticsearchDocumentStore(host=ip, username="", password="", index="main")
 retriever = ElasticsearchRetriever(document_store=document_store)
 reader = FARMReader(model_name_or_path="distilbert-base-uncased-distilled-squad", use_gpu=True, num_processes=5)
 finder = Finder(reader, retriever)

@@ -7,3 +7,5 @@ pymupdf
 google-api-python-client
 sqlalchemy
 psycopg2
+google-auth
+google-api-python-client
