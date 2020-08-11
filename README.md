@@ -15,6 +15,55 @@ We download the PDF of the articles and use PyMuPDF to extract the text and inde
 ### ElasticSearch Server
 We hosted a simple ElasticServer in a GCP Compute Engine machine. This serves two purposes: First to store the article texts and secondly to serve as document store for HayStack
 
+To host an ElasticSearch server and to index it, follow the below steps. This is for a Ubuntu 20.04 instance:
+
+```
+curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt update
+sudo apt install elasticsearch
+```
+After installing elasticsearch, we will need to modify the config file. 
+```
+sudo nano /etc/elasticsearch/elasticsearch.yml
+```
+Change the network.host parameter to below:
+
+```
+network.host: 0.0.0.0
+```
+After that, run the below commands
+```
+sudo systemctl start elasticsearch
+sudo systemctl enable elasticsearch
+sudo ufw allow 9200
+sudo ufw allow 22
+sudo ufw enable
+```
+After this, read the article texts from CSV file and index them
+For example, here I will be downloading 10,000 articles from a GCS bucket
+
+```
+gsutil cp gs://pubmedbot/10k_articles.csv .
+```
+and index them in a Python shell:
+```
+from elasticsearch import Elasticsearch
+import pandas as pd
+
+df = pd.read_csv('10k_articles.csv')
+
+es = Elasticsearch(hosts=[{'host'='', 'port'='9200','username'='', 'password'='', 'index'='main'}])
+dicts = []
+id =1
+for c in df['article'].values:
+    doc = {'article': c}
+    es.index(index='main', id=id, body=doc)
+    id = id+1
+
+es.count(index='main')
+```
+
 ## Choosing Model
 
 We use [HayStack](https://github.com/deepset-ai/haystack) to choose the best model for the application.
