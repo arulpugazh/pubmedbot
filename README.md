@@ -81,7 +81,15 @@ We drafted about 50 questions from different articles with answers and context. 
 3. Manual Validation: For some iterations, we use manual check and mark the accuracy by hand.
 
 ## Deployment
-
+## Docker Container
+We have included Dockerfile to deploy the Dash app. 
+Set the following environment variables while doing docker run. These are necessary to identify the ElasticSearch server in GCP.
+```
+GCP_APPLICATION_CREDENTIALS
+GCP_PROJECT_ID
+GCP_ZONE_ID
+GCP_INSTANCE_NAME
+``` 
 ### Web Page
 TO-DO
 ### Slack Bot

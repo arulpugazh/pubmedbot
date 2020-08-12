@@ -35,7 +35,6 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip && \
 RUN git clone https://github.com/arulpugazh/pubmedbot.git
 COPY google_credentials.json pubmedbot/
 RUN cd pubmedbot
-ENV GOOGLE_APPLICATION_CREDENTIALS=pubmedbot/google_credentials.json
 RUN gsutil cp gs://pubmedbot/10k_articles.csv pubmedbot/
 EXPOSE 5000/tcp
 RUN /bin/bash -c "ls pubmedbot/"

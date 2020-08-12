@@ -1,20 +1,21 @@
 from haystack import Finder
 from haystack.reader.farm import FARMReader
-from haystack.utils import print_answers
 
 from haystack.database.elasticsearch import ElasticsearchDocumentStore
 from haystack.retriever.sparse import ElasticsearchRetriever
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from dash.dependencies import Input, Output, State
+from dash.dependencies import Input, Output
 import dash_table
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 import os
 
-print(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
-credentials = service_account.Credentials.from_service_account_file(os.environ['GOOGLE_APPLICATION_CREDENTIALS'])
+credentials = service_account.Credentials.from_service_account_file(os.environ['GCP_APPLICATION_CREDENTIALS'])
+gcp_project_id = os.environ['GCP_PROJECT_ID']
+gcp_zone_id = os.environ['GCP_ZONE_ID']
+gcp_instance_name = os.environ['GCP_INSTANCE_NAME']
 
 
 def get_ip_address_gce(project_id, zone, instance_name):
@@ -23,7 +24,8 @@ def get_ip_address_gce(project_id, zone, instance_name):
     ip = response['networkInterfaces'][0]['accessConfigs'][0]['natIP']
     return ip
 
-ip = get_ip_address_gce('savvy-factor-282622', 'us-central1-a', 'elastic')
+
+ip = get_ip_address_gce(gcp_project_id, gcp_zone_id, gcp_instance_name)
 document_store = ElasticsearchDocumentStore(host=ip, username="", password="", index="main")
 retriever = ElasticsearchRetriever(document_store=document_store)
 reader = FARMReader(model_name_or_path="distilbert-base-uncased-distilled-squad", use_gpu=True, num_processes=5)
