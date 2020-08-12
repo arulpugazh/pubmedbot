@@ -116,5 +116,5 @@ def get_answer(question, n_clicks):
 
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0',
-                   port=8888,
-                   debug=True)
+                   port=5000,
+                   debug=False)
