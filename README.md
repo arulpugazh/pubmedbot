@@ -21,17 +21,10 @@ To host an ElasticSearch server and to index it, follow the below steps. This is
 curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 sudo apt update
-sudo apt install elasticsearch
+sudo apt install elasticsearch python3 python3-pip
+sudo pip3 install elasticsearch pandas
 ```
-After installing elasticsearch, we will need to modify the config file. 
-```
-sudo nano /etc/elasticsearch/elasticsearch.yml
-```
-Change the network.host parameter to below:
 
-```
-network.host: 0.0.0.0
-```
 After that, run the below commands
 ```
 sudo systemctl start elasticsearch
@@ -51,17 +44,30 @@ and index them in a Python shell:
 from elasticsearch import Elasticsearch
 import pandas as pd
 
-df = pd.read_csv('10k_articles.csv')
+num_rows = 10000
 
-es = Elasticsearch(hosts=[{'host'='', 'port'='9200','username'='', 'password'='', 'index'='main'}])
+es = Elasticsearch()
 dicts = []
 id =1
-for c in df['article'].values:
-    doc = {'article': c}
-    es.index(index='main', id=id, body=doc)
-    id = id+1
+for i in range(0, num_rows, 1000):
+    df = pd.read_csv('10k_articles.csv', names=['id', 'article'],nrows=10, skiprows=i)
+    for c in df['article'].values:
+        doc = {'article': c}
+        es.index(index='main', id=id, body=doc)
+        id = id+1
 
 es.count(index='main')
+```
+
+After indexing elasticsearch, we will need to modify the config file. 
+```
+sudo nano /etc/elasticsearch/elasticsearch.yml
+```
+Change the following parameters and restart the server:
+
+```
+network.host: 0.0.0.0
+discovery.seed_hosts: []
 ```
 
 ## Choosing Model
