@@ -42,19 +42,26 @@ gsutil cp gs://pubmedbot/10k_articles.csv .
 and index them in a Python shell:
 ```
 from elasticsearch import Elasticsearch
+from elasticsearch.exceptions import RequestError
 import pandas as pd
 
 num_rows = 10000
 
-es = Elasticsearch()
+es = Elasticsearch(timeout=1000)
 dicts = []
 id =1
-for i in range(0, num_rows, 1000):
-    df = pd.read_csv('10k_articles.csv', names=['id', 'article'],nrows=10, skiprows=i)
+for i in range(0, num_rows, 50):
+    df = pd.read_csv('10k_articles.csv', names=['id', 'article'],nrows=50, skiprows=i)
+    df = df[df['article'].str.len() > 4]
     for c in df['article'].values:
-        doc = {'article': c}
-        es.index(index='main', id=id, body=doc)
-        id = id+1
+        try:
+            doc = {'article': c}
+            es.index(index='main', id=id, body=doc)
+            id = id+1
+        except RequestError as e:
+            with open('error.log', 'a+') as f:
+                f.write(e)
+            continue
 
 es.count(index='main')
 ```
