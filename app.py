@@ -12,7 +12,7 @@ from google.oauth2 import service_account
 from googleapiclient.discovery import build
 import os
 
-credentials = service_account.Credentials.from_service_account_file(os.environ['GCP_APPLICATION_CREDENTIALS'])
+credentials = service_account.Credentials.from_service_account_file('google_credentials.json')
 gcp_project_id = os.environ['GCP_PROJECT_ID']
 gcp_zone_id = os.environ['GCP_ZONE_ID']
 gcp_instance_name = os.environ['GCP_INSTANCE_NAME']
@@ -26,9 +26,9 @@ def get_ip_address_gce(project_id, zone, instance_name):
 
 
 ip = get_ip_address_gce(gcp_project_id, gcp_zone_id, gcp_instance_name)
-document_store = ElasticsearchDocumentStore(host=ip, username="", password="", index="main")
+document_store = ElasticsearchDocumentStore(host=ip, username="", password="", index="articles")
 retriever = ElasticsearchRetriever(document_store=document_store)
-reader = FARMReader(model_name_or_path="distilbert-base-uncased-distilled-squad", use_gpu=True, num_processes=5)
+reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=True, num_processes=10)
 finder = Finder(reader, retriever)
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
@@ -36,7 +36,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 server = app.server
 app.config.suppress_callback_exceptions = True
 
-style_table = {'overflowY': 'scroll',
+style_table = {'overflowY': 'hidden',
                'overflowX': 'hidden',
                'padding-left': '20px',
                'maxHeight': '400px'}
@@ -98,16 +98,18 @@ def get_answer(question, n_clicks):
     print("in callback")
     if is_triggered('submit_question'):
         prediction = finder.get_answers(question=question,
-                                        top_k_retriever=1,
-                                        top_k_reader=1)
+                                        top_k_retriever=3,
+                                        top_k_reader=3)
+        print(prediction)
         prediction = [{'Answer': ans['answer'],
                        'Probability': "{:10.2f}".format(ans['probability']),
-                       'Context': ans['context']}
+                       'Context': ans['context'],
+                       'Article': ans['meta']['pmid']}
                       for ans in prediction['answers']]
 
         return [dash_table.DataTable(
             id='table',
-            columns=[{"name": i, "id": i} for i in ['Answer', 'Probability', 'Context']],
+            columns=[{"name": i, "id": i} for i in ['Answer', 'Probability', 'Context', 'Article']],
             data=prediction,
             style_table=style_table,
             style_cell=style_cell,

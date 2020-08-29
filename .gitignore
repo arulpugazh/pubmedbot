@@ -5,5 +5,10 @@ __pycache__/
 .history/
 mlruns/
 pdf/
+txt/
 valid/
+labels/
 .ipynb_checkpoints/
+pubmed.sqlite
+*.xml
+*.csv
