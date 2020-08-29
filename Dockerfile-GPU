@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM nvidia/cuda:11.0-runtime-ubuntu20.04
 LABEL maintainer="arulpugazh"
 LABEL repository="pubmedbot"
 

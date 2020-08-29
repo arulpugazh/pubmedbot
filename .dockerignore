@@ -1,0 +1,14 @@
+# Specify filepatterns you want git to ignore.
+__pycache__/
+.idea/
+.vscode/
+.history/
+mlruns/
+pdf/
+txt/
+valid/
+labels/
+.ipynb_checkpoints/
+pubmed.sqlite
+*.xml
+*.csv
