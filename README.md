@@ -55,7 +55,7 @@ for i in range(0, num_rows, 50):
     df = df[df['article'].str.len() > 4]
     for c in df['article'].values:
         try:
-            doc = {'article': c}
+            doc = {'text': c}
             es.index(index='main', id=id, body=doc)
             id = id+1
         except RequestError as e:
