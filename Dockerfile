@@ -18,6 +18,7 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip && \
     google-auth
 
 COPY app.py .
+COPY gcputils.py .
 COPY google_credentials.json .
 EXPOSE 5000
 CMD ["python3", "app.py"]

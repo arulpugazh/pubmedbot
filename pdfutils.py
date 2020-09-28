@@ -4,6 +4,10 @@ from functools import partial, reduce
 from itertools import chain
 from bs4 import BeautifulSoup
 import requests
+import os
+from gcputils import upload_blob
+
+bucket_name = os.environ['TEXT_BUCKET_NAME']
 
 def get_scihub_urls():
     urls = []
@@ -12,13 +16,13 @@ def get_scihub_urls():
     for a in s.find_all('a', href=True):
         if 'sci-hub.' in a['href']:
             urls.append(a['href'])
-    print("URLS", urls)
+    # print("URLS", urls)
     if len(urls) != 0:
         return urls
     else:
         return ['https://sci-hub.st']
 
-def download_pdf(base_url, pmid, sess, path):
+def download_pdf(base_url, pmid, sess):
     try:
         data = {'request': str(pmid)}
         res = sess.post(base_url, data)
@@ -33,10 +37,10 @@ def download_pdf(base_url, pmid, sess, path):
             url = iframe.get('src')
         else:
             url = 'http:' + iframe.get('src')
-        print("Detected URL:", url)
+        # print("Detected URL:", url)
         res = sess.get(url)
         pdf = res.content
-        with open(path + str(pmid) + '.pdf', 'wb+') as f:
+        with open(str(pmid) + '.pdf', 'wb+') as f:
             f.write(pdf)
     except Exception as e:
         print(e)
@@ -79,7 +83,7 @@ def find_longest_common_ngram(sequences, max_ngram=30, min_ngram=3):
 
 
 def parse_pdf(pmid):
-    file_path = 'pdf/'+ str(pmid) + '.pdf'
+    file_path = str(pmid) + '.pdf'
     command = ["pdftotext", str(file_path), "-"]
     output = subprocess.run(command, stdout=subprocess.PIPE, shell=False)
     document = output.stdout.decode(errors="ignore")
@@ -119,5 +123,8 @@ def parse_pdf(pmid):
         cleaned_pages = [page.replace(found_footer, "") for page in cleaned_pages]
     text = "\n".join(cleaned_pages)
     # print("No of chars:", len(cleaned_pages))
-    with open('txt/'+str(pmid)+'.txt', 'w+') as f:
+    with open(str(pmid)+'.txt', 'w+') as f:
         f.write(text)
+    upload_blob(bucket_name, str(pmid)+'.txt', str(pmid)+'.txt')
+    os.remove(str(pmid)+'.txt')
+    os.remove(str(pmid)+'.pdf')

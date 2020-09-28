@@ -1,5 +1,4 @@
 import xml.etree.ElementTree as ET
-import pandas as pd
 from dbutils import get_new_db_connection
 import os
 from random import uniform
@@ -9,9 +8,10 @@ from pdfutils import download_pdf, parse_pdf, get_scihub_urls
 import requests
 import gzip
 from tqdm import tqdm
+import re
 
 def write_to_db(url, pmid, cur, conn):
-    cur.execute('''INSERT INTO articles(pmid, url, downloaded) VALUES(?,?,?)''',
+    cur.execute('''INSERT INTO articles(pmid, url, downloaded) VALUES(%s,%s,%s)''',
                 [pmid, url, 0])
     conn.commit()
 
@@ -21,7 +21,21 @@ def clean_unidentified_characters(text):
                   'Chemical Reviews', 'Frontiers in Endocrinology | www.frontiersin.org',
                   'ACS Applied Materials & Interfaces',
                   '1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59\n60\n']
+    p = re.compile('|'.join(map(re.escape, words_list)))
+    article = re.sub(p, '', text)
+    return article
 
+def article_to_paragraphs(file_name):
+    with open('txt/'+file_name, 'r') as f:
+        text = f.read()
+    new_text = re.sub(r'\n\n.*et al\n', "", text)
+    new_text = re.sub(r'\.\n\n', "\.\n", new_text)
+    new_text = re.sub(r'Page [0-9]+ of [0-9]+\n', "", new_text)
+    new_text = clean_unidentified_characters(new_text)
+    new_text = re.sub(r'(\n )+', "\n", new_text).strip()
+    new_text = re.sub(r'\n+', "\n", new_text).strip()
+    paragraphs = re.split(r'\.( )*\n', new_text)
+    return paragraphs
 
 def download_parse_pdf(pmid):
     try:
@@ -34,7 +48,7 @@ def download_parse_pdf(pmid):
         urls = get_scihub_urls()
         for url in urls:
             print("Trying", pmid, "with URL", url)
-            dl_status = download_pdf(url, pmid, sess, 'pdf/')
+            dl_status = download_pdf(url, pmid, sess)
             if dl_status == 404:
                 return 404
             elif dl_status == 200:
@@ -59,18 +73,18 @@ def parse_abstract_article(row, cur, conn):
         write_to_db(row[col], "", url, cur, conn)
 
 
-def transform_abstract_one():
-    df = pd.read_csv('pubmed_abstracts.csv')
-    conn, cur = get_new_db_connection()
-    df.apply(parse_abstract_article, args=(cur, conn), axis=1)
-    conn.close()
-
-
-def transform_abstract_two():
-    df = pd.read_csv('fibro_abstracts.csv')
-    conn, cur = get_new_db_connection()
-    df['abstract'].apply(write_to_db, args=("", "", cur, conn))
-    conn.close()
+# def transform_abstract_one():
+#     df = pd.read_csv('pubmed_abstracts.csv')
+#     conn, cur = get_new_db_connection()
+#     df.apply(parse_abstract_article, args=(cur, conn), axis=1)
+#     conn.close()
+#
+#
+# def transform_abstract_two():
+#     df = pd.read_csv('fibro_abstracts.csv')
+#     conn, cur = get_new_db_connection()
+#     df['abstract'].apply(write_to_db, args=("", "", cur, conn))
+#     conn.close()
 
 
 def transform_abstract_three(file):
@@ -81,7 +95,6 @@ def transform_abstract_three(file):
     conn, cur = get_new_db_connection()
     for e in root.findall('PubmedArticle/MedlineCitation'):
         try:
-            abstract = e.find('Article/Abstract/AbstractText').text
             pmid = e.find('PMID').text
             url = "https://www.ncbi.nlm.nih.gov/pubmed/" + pmid
             write_to_db(url, pmid, cur, conn)
@@ -101,20 +114,22 @@ def update_article(row):
     conn, cur = get_new_db_connection()
     sleep(uniform(0.0, 1.0))
     status = download_parse_pdf(row[0])
-    # print(status)
-    cur.execute('''UPDATE abstracts SET downloaded=? WHERE pmid=?''', [status, row[0]])
+    print(row[0], "-", status)
+    cur.execute('''UPDATE articles SET downloaded=%s WHERE pmid=%s''', [status, row[0]])
     conn.commit()
     conn.close()
 
 
 def update_articles():
     conn, cur = get_new_db_connection()
-    cur.execute('''SELECT pmid FROM abstracts WHERE downloaded = 503 AND pmid is not null''')
+    cur.execute('''SELECT pmid FROM articles WHERE downloaded =0 AND pmid is not null limit 10''')
     rows = cur.fetchall()
     conn.close()
     print(f"Number of articles yet to be updated: {len(rows)}")
-    pool = Pool(15)
+    pool = Pool(10)
     pool.map(update_article, rows)
+    pool.close()
+    pool.join()
 
 
 def clean_article(text):
