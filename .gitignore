@@ -12,3 +12,11 @@ labels/
 pubmed.sqlite
 *.xml
 *.csv
+nlp_qa_project-master/
+my_model/
+.airflow/
+anaconda3/chart/
+data/
+finetune/
+QuestionGeneration/
+.mypy_cache/
