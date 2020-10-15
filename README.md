@@ -6,10 +6,10 @@ I am developing this as part of my mentorship with SharpestMinds.
 # Scraping PubMed articles
 
 ### Extract article ID and URL
-I extract the article information from [nih baseline files](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/) . They are XML files and we extract the article id, PubMed URL and abstract from them and store them in SQLite for later use.
+Article information is extracted from [nih baseline files](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline/) . They are XML files and we extract the article id, PubMed URL and abstract from them and store them in SQLite for later use.
 
 ### Scrape article texts
-PubMed articles are paywalled and will need institutional credentials for access. So we use SciHub to scrape the articles. We forked the [scihub.py repo](https://github.com/zaytoun/scihub.py) and made some changes to handle our application specific exceptions. 
+PubMed articles are paywalled and will need institutional credentials for access. So we use SciHub to scrape the articles. 
 We download the PDF of the articles and use PyMuPDF to extract the text and index them in an ElasticSearch server.
 
 ### ElasticSearch Server
@@ -79,14 +79,13 @@ discovery.seed_hosts: []
 
 ## Choosing Model
 
-We use [HayStack](https://github.com/deepset-ai/haystack) to choose the best model for the application.
+[HayStack](https://github.com/deepset-ai/haystack) is used to choose the best model for the application.
 
 ### Fine-tuning
-We did not do fine-tuning as of now since it will require labeling significant number of articles with question, answer and contexts. 
-We intend to use the pretrained models as such.
+Customers are presented with an optional field to give feedback and to mark the correct answer. This feedback will be sent to server to fine-tune the model.
 
 ### Validation
-We drafted about 50 questions from different articles with answers and context. All of these questions will be passed to different models for inference and the responses will be recorded. 
+We created about 50 question-answer-context pairs from different articles for validation.
 
 ### Metrics
 1. USE Similarity: We use spacy and Universal Sentence Encoder to measure the similarity of the labels and the predictions
