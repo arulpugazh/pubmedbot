@@ -1,7 +1,7 @@
 from haystack import Finder
 from haystack.reader.farm import FARMReader
 
-from haystack.database.elasticsearch import ElasticsearchDocumentStore
+from haystack.document_store.elasticsearch import ElasticsearchDocumentStore
 from haystack.retriever.sparse import ElasticsearchRetriever
 import dash
 import dash_core_components as dcc
@@ -9,15 +9,13 @@ import dash_html_components as html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, State
 import dash_table
-import os
-from gcputils import elastic_ip
+from gcputils import get_elastic_ip
 from dbutils import get_new_db_connection
-import json
-from multiprocessing import Pool
 
+elastic_ip = get_elastic_ip()
 document_store = ElasticsearchDocumentStore(host=elastic_ip, username="", password="", index="articles")
 retriever = ElasticsearchRetriever(document_store=document_store)
-reader = FARMReader(model_name_or_path="my_model", use_gpu=False, num_processes=10)
+reader = FARMReader(model_name_or_path="deepset/roberta-base-squad2", use_gpu=False, num_processes=10)
 finder = Finder(reader, retriever)
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css', dbc.themes.BOOTSTRAP]
@@ -164,14 +162,12 @@ def get_feedback(question, feedback, user_answer, n_clicks, selected_rows, data)
         )
         conn.commit()
         conn.close()
-        pool = Pool(processes=1)
-        pool.apply_async(finetune_model, args=(correct_context, question, correct_answer))
-        pool.close()
-        pool.join()
         return [html.P('Thanks for the feedback')]
 
 
 if __name__ == '__main__':
     app.run_server(host='0.0.0.0',
-                   port=5000,
-                   debug=False)
+                   port=80,
+                   debug=False,
+                   # ssl_context=('cert.pem', 'key.pem')
+                   )
