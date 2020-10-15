@@ -36,24 +36,25 @@ doc_id = 1
 data_vec = []
 paragraphs_vec = []
 for para in paras:
-    sentences = sent_tokenize(para)
-    qas_vec = []
-    for sent in sentences:
-        if sent is not None:
-            qa_pairs = qgen.generate_question(sent, ['Wh', 'Are', 'Who', 'Do'])
-            for qa_pair in qa_pairs:
-                answer_start = para.find(qa_pair['A'])
-                answers_vec = [{"text": qa_pair['A'],
-                                "answer_start": answer_start,
-                                "answer_category": None}]
+    if para is not None:
+        sentences = sent_tokenize(para)
+        qas_vec = []
+        for sent in sentences:
+            if sent is not None:
+                qa_pairs = qgen.generate_question(sent, ['Wh', 'Are', 'Who', 'Do'])
+                for qa_pair in qa_pairs:
+                    answer_start = para.find(qa_pair['A'])
+                    answers_vec = [{"text": qa_pair['A'],
+                                    "answer_start": answer_start,
+                                    "answer_category": None}]
 
-                qas_vec.append({"question": qa_pair['Q'],
-                                "id": qa_id,
-                                "answers": answers_vec,
-                                "is_impossible": False})
-    paragraphs_vec.append({"qas": qas_vec,
-                           "context": para,
-                           "document_id": doc_id})
+                    qas_vec.append({"question": qa_pair['Q'],
+                                    "id": qa_id,
+                                    "answers": answers_vec,
+                                    "is_impossible": False})
+        paragraphs_vec.append({"paragraphs": [{"qas": qas_vec,
+                                               "context": para,
+                                               "document_id": doc_id}]})
 
 body = {"data": paragraphs_vec}
 print(body)
